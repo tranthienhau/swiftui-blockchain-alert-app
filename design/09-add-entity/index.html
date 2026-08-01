@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Track New Entity Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#005236",
+                        "negative": "#E5484D",
+                        "surface-dim": "#d8dadd",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "on-secondary-fixed": "#062019",
+                        "on-tertiary-fixed": "#291800",
+                        "on-surface-variant": "#3d4a42",
+                        "secondary": "#4a645b",
+                        "surface-tint": "#006c49",
+                        "primary": "#006947",
+                        "tertiary-container": "#a16900",
+                        "tertiary-fixed": "#ffddb4",
+                        "secondary-fixed": "#cde9de",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "surface-container-highest": "#e0e3e6",
+                        "surface": "#FFFFFF",
+                        "on-error-container": "#93000a",
+                        "text-secondary": "#64748B",
+                        "surface-variant": "#e0e3e6",
+                        "secondary-fixed-dim": "#b1ccc2",
+                        "on-error": "#ffffff",
+                        "text-primary": "#0F172A",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface-bright": "#f7f9fc",
+                        "surface-container": "#eceef1",
+                        "primary-container": "#00855b",
+                        "primary-fixed-dim": "#63dca6",
+                        "outline-variant": "#bccac0",
+                        "background": "#f7f9fc",
+                        "on-secondary-fixed-variant": "#334c44",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#81f9c1",
+                        "tertiary": "#805200",
+                        "secondary-container": "#cde9de",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#506a61",
+                        "on-primary-fixed": "#002113",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#f5fff6",
+                        "surface-container-low": "#f2f4f7",
+                        "inverse-primary": "#63dca6",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary": "#ffffff",
+                        "border": "#E6EAF0",
+                        "outline": "#6d7a71",
+                        "surface-container-high": "#e6e8eb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-sm": "4px",
+                        "gutter": "12px",
+                        "stack-lg": "16px",
+                        "stack-md": "12px",
+                        "screen-padding": "20px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "card-title": ["Inter"],
+                        "numeral-data": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "headline-lg": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "caption": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+                        "card-title": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+                        "numeral-data": ["15px", { lineHeight: "20px", fontWeight: "600" }],
+                        "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        body {
+            background-color: #F6F8FB;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .modal-overlay {
+            background-color: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(2px);
+        }
+
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0E9F6E;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0E9F6E;
+        }
+        
+        /* Custom scrollbar for horizontal chip list */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-screen w-full flex items-end justify-center sm:items-center bg-background relative overflow-hidden">
+<!-- Scrim / Overlay -->
+<div class="fixed inset-0 modal-overlay z-40 transition-opacity"></div>
+<!-- Bottom Sheet Modal -->
+<div class="w-full max-w-[390px] bg-surface rounded-t-[16px] sm:rounded-[16px] shadow-[0_-4px_24px_rgba(15,23,42,0.12)] z-50 transform transition-transform duration-300 translate-y-0 pb-safe relative flex flex-col">
+<!-- Grabber Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-12 h-1.5 bg-surface-variant rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-screen-padding pt-4 pb-6 flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-text-primary">Track new entity</h2>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-low text-text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Content Area -->
+<div class="px-screen-padding flex flex-col gap-stack-lg pb-6">
+<!-- Segmented Control -->
+<div class="flex p-1 bg-surface-container-low rounded-lg w-full">
+<button class="flex-1 py-2 text-center rounded bg-surface shadow-sm text-text-primary font-card-title text-card-title" style="color: #0E9F6E;">
+                    Wallet
+                </button>
+<button class="flex-1 py-2 text-center rounded text-text-secondary font-card-title text-card-title hover:text-text-primary transition-colors">
+                    Token
+                </button>
+<button class="flex-1 py-2 text-center rounded text-text-secondary font-card-title text-card-title hover:text-text-primary transition-colors">
+                    Contract
+                </button>
+</div>
+<!-- Input Field -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-secondary text-[20px]" data-icon="search">search</span>
+</div>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-lg font-body-md text-body-md text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm" placeholder="0x... or name.eth" type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<button class="text-text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+</div>
+</div>
+<!-- Suggestions -->
+<div class="w-full">
+<p class="font-caption text-caption text-text-secondary mb-2">Suggestions</p>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border bg-surface text-text-primary font-caption text-caption hover:border-primary hover:text-primary transition-colors">Vitalik.eth</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border bg-surface text-text-primary font-caption text-caption hover:border-primary hover:text-primary transition-colors">PEPE</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border bg-surface text-text-primary font-caption text-caption hover:border-primary hover:text-primary transition-colors">Blur</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-border bg-surface text-text-primary font-caption text-caption hover:border-primary hover:text-primary transition-colors">Arbitrum</button>
+</div>
+</div>
+<!-- Rule Section -->
+<div class="w-full bg-surface-bright border border-border rounded-lg p-4 mt-2">
+<p class="font-caption text-caption text-text-secondary mb-3 uppercase tracking-wider">Starter Rule</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed text-[16px]" data-icon="payments">payments</span>
+</div>
+<span class="font-body-md text-body-md text-text-primary font-medium">Alert on transfers &gt; $100k</span>
+</div>
+<!-- Custom Toggle -->
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-surface border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out translate-x-5 border-[#0E9F6E]" id="toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#0E9F6E] cursor-pointer transition-colors duration-200" for="toggle"></label>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="px-screen-padding pb-8 pt-4 bg-surface border-t border-border mt-auto">
+<button class="w-full py-3.5 rounded-full font-card-title text-card-title text-on-primary text-center transition-opacity hover:opacity-90 active:scale-[0.98]" style="background-color: #0E9F6E;">
+                Add to watchlist
+            </button>
+</div>
+</div>
+</body></html>

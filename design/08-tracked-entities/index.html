@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Tracked Entities - ChainAlert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e6e8eb",
+                    "negative": "#E5484D",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary": "#4a645b",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-secondary-container": "#506a61",
+                    "on-primary-fixed": "#002113",
+                    "tertiary-fixed": "#ffddb4",
+                    "inverse-on-surface": "#eff1f4",
+                    "text-secondary": "#64748B",
+                    "secondary-fixed-dim": "#b1ccc2",
+                    "surface-container": "#eceef1",
+                    "primary-container": "#00855b",
+                    "background": "#f7f9fc",
+                    "inverse-surface": "#2d3133",
+                    "text-primary": "#0F172A",
+                    "primary-fixed": "#81f9c1",
+                    "tertiary-container": "#a16900",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3d4a42",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed-variant": "#633f00",
+                    "on-primary-container": "#f5fff6",
+                    "secondary-container": "#cde9de",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#805200",
+                    "outline-variant": "#bccac0",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#63dca6",
+                    "border": "#E6EAF0",
+                    "surface-container-low": "#f2f4f7",
+                    "surface-container-highest": "#e0e3e6",
+                    "surface": "#FFFFFF",
+                    "on-tertiary-fixed": "#291800",
+                    "tertiary-fixed-dim": "#ffb955",
+                    "on-secondary-fixed": "#062019",
+                    "primary": "#0E9F6E", // Emerald Accent
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e6",
+                    "surface-tint": "#0E9F6E",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#63dca6",
+                    "surface-dim": "#d8dadd",
+                    "secondary-fixed": "#cde9de",
+                    "surface-bright": "#f7f9fc",
+                    "on-background": "#191c1e",
+                    "on-error": "#ffffff",
+                    "outline": "#6d7a71",
+                    "on-secondary-fixed-variant": "#334c44",
+                    "emerald-bg": "#D9F5EA"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "12px",
+                    "base": "8px",
+                    "gutter": "12px",
+                    "stack-lg": "16px",
+                    "stack-sm": "4px",
+                    "screen-padding": "20px"
+            },
+            "fontFamily": {
+                    "numeral-data": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "card-title": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "caption": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "numeral-data": [
+                            "15px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "15px",
+                            {
+                                    "lineHeight": "22px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "card-title": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "34px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "caption": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            },
+            "boxShadow": {
+                "soft": "0px 2px 12px 0px rgba(15, 23, 42, 0.06)",
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #F6F8FB; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary antialiased font-body-md w-full max-w-[390px] mx-auto min-h-screen relative shadow-soft overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-background dark:bg-on-background flex items-center justify-between px-screen-padding h-16 border-b border-border dark:border-outline-variant transition-opacity duration-200">
+<div class="flex items-center gap-2">
+<!-- Not an exact match for the JSON top bar as this is a specific screen header, but styling aligns -->
+<h1 class="font-headline-md text-headline-md font-bold text-text-primary">Tracked</h1>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-white" style="font-size: 20px;">add</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-screen-padding pt-stack-md pb-[100px] flex flex-col gap-stack-lg">
+<!-- Search Field -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary" style="font-size: 20px;">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-lg font-body-md text-body-md text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors shadow-soft" placeholder="Search entities..." type="text"/>
+</div>
+<!-- Segmented Tabs -->
+<div class="flex p-1 bg-surface-container-low rounded-lg w-full">
+<button class="flex-1 py-2 px-4 rounded-md bg-surface shadow-soft text-primary font-caption text-caption text-center">Wallets</button>
+<button class="flex-1 py-2 px-4 rounded-md text-text-secondary hover:text-text-primary font-caption text-caption text-center transition-colors">Tokens</button>
+<button class="flex-1 py-2 px-4 rounded-md text-text-secondary hover:text-text-primary font-caption text-caption text-center transition-colors">Contracts</button>
+</div>
+<!-- Tracked Entities List -->
+<div class="flex flex-col gap-stack-md">
+<!-- Entity Row 1 -->
+<div class="bg-surface rounded-2xl p-4 shadow-soft flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-container-highest" data-alt="A small 32x32 digital avatar for Vitalik Buterin, abstract geometric tech style, high contrast, minimalist, clean white background, digital art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvS-00Dxj1vEkEe1I5MngimhOMbGgueVpS9eN0b4vtthZ7GjtAwaw1_iM-Dt5ROfr59bok45A2_5zs7MMN7BEPgBJUH-la-WyiitiO1POz8mocJMGSH2YT94X7DtFqtobvu3rRnS7cD5imeHsgJ3Z3wXxdgsxPtTJ17TyIyofZFDFejNl2G1r-zjcI9IvEbKbSUlW8k4nuqNRePtkvJYs1zgRwGKTkJtRe0by3akjnHsfuDhhkCOV8V-QUe5kZnc6OZzhRc9vLtncq"/>
+<div class="flex flex-col">
+<span class="font-card-title text-card-title text-text-primary">Vitalik.eth</span>
+<span class="font-caption text-caption text-text-secondary">0x123...456</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end gap-1">
+<span class="font-caption text-caption text-text-secondary">3 rules</span>
+<span class="bg-emerald-bg text-primary px-2 py-0.5 rounded-full font-numeral-data text-[11px] font-bold">7 alerts</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Entity Row 2 -->
+<div class="bg-surface rounded-2xl p-4 shadow-soft flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-container-highest" data-alt="A small 32x32 digital avatar for Justin Sun, abstract wave pattern, high contrast tech style, clean white background, vibrant digital art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvhNSRuee3y4YFhEgpV64nRACElK2hH6KaOv6-dHHmzN1a3TMcVbeDoi3d7FfbsAtEt0367F0YNQogpcS2C_FupjKA53_EzmWVS7EhVONr1ufWKN6XwF1eocTjhaTG9O-gjxnI4uBeJgLkSJA3RW7sqdtKLkzJkPpK5dfewnKftIQvhacw-3JDVr3qtWIoFj9Pr15otmc4Fw1EQ24jGxTm7za1VT29phERe-SR1KtdxeG6V6Z3pusR0kh51hxXb1zdHjZ42Y1AmVTu"/>
+<div class="flex flex-col">
+<span class="font-card-title text-card-title text-text-primary">Justin Sun</span>
+<span class="font-caption text-caption text-text-secondary">0xabc...def</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end gap-1">
+<span class="font-caption text-caption text-text-secondary">2 rules</span>
+<span class="bg-emerald-bg text-primary px-2 py-0.5 rounded-full font-numeral-data text-[11px] font-bold">4 alerts</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Entity Row 3 -->
+<div class="bg-surface rounded-2xl p-4 shadow-soft flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-container-highest" data-alt="A small 32x32 digital avatar for PEPE token, subtle frog motif abstracted into geometric shapes, high contrast tech style, clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBkjMgJDlsmjylwae5HJ3JjmSc34PQmrwoKCIg675GUsCdXLTXJfzUXwC-i-kBONUXYCnbrPy2UxqbU3Y6E_118BRkG36RsCbJSstQmcxIGQgSqGdtUfy-nuB7yQradO5YW7VSjfIODORDnOiJhFW9y6wbwYhI26fK_Ff8qxGecHN8Cjx3SBaFf8XBhpTqMcAd1S8yTLVj39t1dCSbjp8eXGXmzRnq9cgu4J_9eqR5AEo_Sy7gZX3w1qyGXcfmcn3tI8hlTdJ72CU6"/>
+<div class="flex flex-col">
+<span class="font-card-title text-card-title text-text-primary">PEPE</span>
+<span class="font-caption text-caption text-text-secondary">0x789...012</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end gap-1">
+<span class="font-caption text-caption text-text-secondary">5 rules</span>
+<span class="bg-emerald-bg text-primary px-2 py-0.5 rounded-full font-numeral-data text-[11px] font-bold">12 alerts</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Entity Row 4 -->
+<div class="bg-surface rounded-2xl p-4 shadow-soft flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover bg-surface-container-highest" data-alt="A small 32x32 digital avatar for Uniswap V3, subtle unicorn horn motif abstracted into pink and white geometric shapes, high contrast tech style, clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS7O6d5r0eF8VM_tj5h7fMtXnODYrKt1SUKtd9_KV90aBz_hwZhbWXmKyXH4AhecCP5WXzSJXc10WaRI2Yvx1-rDOB1lBjE2_GVxOZtTArve8WgsjT4fSUWceHVFARrjjJMS8amntUHL9clIa28CKRbdGt5m9BQ9jh6_Z7I1gnbtwRoM6mW1SWDVaIu5GuwVPuz2fD4nN8iPntbv6qqpgbdnN4D9aEqO8yTDaGZP-KZdqRFPwWEtgkG8YMOoQ2WMwUlWFthxyoOtUv"/>
+<div class="flex flex-col">
+<span class="font-card-title text-card-title text-text-primary">Uniswap V3</span>
+<span class="font-caption text-caption text-text-secondary">0xdef...ghij</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end gap-1">
+<span class="font-caption text-caption text-text-secondary">1 rule</span>
+<span class="bg-emerald-bg text-primary px-2 py-0.5 rounded-full font-numeral-data text-[11px] font-bold">2 alerts</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-surface dark:bg-inverse-surface fixed bottom-0 w-full z-50 h-[84px] border-t border-border dark:border-outline-variant flex justify-around items-center px-screen-padding pb-safe md:hidden shadow-[0_-2px_12px_rgba(15,23,42,0.03)]">
+<!-- Feed (Inactive) -->
+<a class="flex flex-col items-center justify-center text-text-secondary dark:text-outline hover:bg-surface-container-low dark:hover:bg-surface-variant w-16 h-full transition-colors rounded-xl mx-1" href="#">
+<span class="material-symbols-outlined mb-1" style="font-size: 24px;">notifications</span>
+<span class="font-caption text-[11px] font-medium leading-none">Feed</span>
+</a>
+<!-- Tracked (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-variant w-16 h-full scale-95 transition-transform duration-150 rounded-xl mx-1 bg-emerald-bg/20" href="#">
+<span class="material-symbols-outlined mb-1 text-primary" style="font-variation-settings: 'FILL' 1; font-size: 24px;">visibility</span>
+<span class="font-caption text-[11px] font-bold leading-none text-primary">Tracked</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex flex-col items-center justify-center text-text-secondary dark:text-outline hover:bg-surface-container-low dark:hover:bg-surface-variant w-16 h-full transition-colors rounded-xl mx-1" href="#">
+<span class="material-symbols-outlined mb-1" style="font-size: 24px;">settings</span>
+<span class="font-caption text-[11px] font-medium leading-none">Settings</span>
+</a>
+</nav>
+</body></html>

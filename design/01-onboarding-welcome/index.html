@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ChainAlert - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb955",
+                        "surface-variant": "#e0e3e6",
+                        "surface-tint": "#006c49",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-container-low": "#f2f4f7",
+                        "outline": "#6d7a71",
+                        "on-primary-fixed": "#002113",
+                        "primary-container": "#00855b",
+                        "on-primary-container": "#f5fff6",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container": "#eceef1",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#a16900",
+                        "inverse-on-surface": "#eff1f4",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#cde9de",
+                        "text-primary": "#0F172A",
+                        "primary-fixed": "#81f9c1",
+                        "negative": "#E5484D",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "text-secondary": "#64748B",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#cde9de",
+                        "on-primary": "#ffffff",
+                        "primary": "#006947",
+                        "on-secondary-fixed-variant": "#334c44",
+                        "outline-variant": "#bccac0",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#062019",
+                        "secondary-fixed-dim": "#b1ccc2",
+                        "border": "#E6EAF0",
+                        "tertiary": "#805200",
+                        "surface-container-high": "#e6e8eb",
+                        "surface-bright": "#f7f9fc",
+                        "background": "#f7f9fc",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed": "#ffddb4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#FFFFFF",
+                        "surface-container-highest": "#e0e3e6",
+                        "surface-dim": "#d8dadd",
+                        "primary-fixed-dim": "#63dca6",
+                        "secondary": "#4a645b",
+                        "on-surface-variant": "#3d4a42",
+                        "on-secondary-container": "#506a61",
+                        "inverse-primary": "#63dca6",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#291800",
+                        "emerald-accent": "#0E9F6E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "16px"
+                    },
+                    "spacing": {
+                        "stack-lg": "16px",
+                        "base": "8px",
+                        "stack-md": "12px",
+                        "stack-sm": "4px",
+                        "gutter": "12px",
+                        "screen-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "numeral-data": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "card-title": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "numeral-data": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "card-title": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F6F8FB;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col items-center justify-center bg-background antialiased selection:bg-primary selection:text-on-primary">
+<main class="w-full max-w-[390px] h-full max-h-[844px] bg-background relative flex flex-col overflow-hidden shadow-2xl md:rounded-card">
+<!-- Top App Bar - Simple version for Onboarding -->
+<header class="w-full top-0 flex justify-center items-center px-screen-padding h-16 w-full absolute z-10 bg-transparent no-shadow">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">ChainAlert</span>
+</div>
+</header>
+<!-- Hero Image Area -->
+<div class="flex-grow w-full relative">
+<img alt="Abstract green network lines connecting nodes on a white background, representing blockchain connectivity." class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXbO9DD9GmdqQmHBo4DDdAwbwAJGCsmcirH0UhaILBfW_6Qi7cYzxh2sGExUxcYD2KUSB7yzdji48iEWDN6N5VsleoeUyJ8_tfpeXZZK5qxqSgUicrJUrDOr6XCaQieBDv5YAva6rM3MlN_8xamSUiDGJjbo9Wmsup17XXmzXUlR9A4lHuXk532P1Oc6UwoeJ_x2u2cBLoinMtPGAeCVO77gX1SNucMympxS7Gch7c8ZrEOspstiMU718C9GFys3HXjykfrOmpZ6rD"/>
+<!-- Subtle gradient overlay to ensure text readability if it extends up -->
+<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<!-- Content Area -->
+<div class="w-full px-screen-padding pb-[40px] pt-stack-lg flex flex-col items-center bg-background rounded-t-card relative z-10 -mt-4 shadow-[0_-8px_24px_rgba(15,23,42,0.04)]">
+<h1 class="font-headline-lg text-headline-lg text-text-primary text-center mb-stack-md">
+                Never miss an on-chain move
+            </h1>
+<p class="font-body-md text-body-md text-text-secondary text-center mb-[32px] max-w-[300px]">
+                Get sub-2-second alerts on wallets and tokens you track. Real-time intelligence at your fingertips.
+            </p>
+<!-- Page Indicator -->
+<div class="flex gap-2 mb-[40px]">
+<div class="w-2 h-2 rounded-full bg-emerald-accent"></div>
+<div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+<div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+<div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Actions -->
+<button class="w-full bg-emerald-accent hover:opacity-90 active:scale-[0.98] transition-all duration-200 text-white font-card-title text-card-title py-[14px] rounded-full flex items-center justify-center mb-stack-md">
+                Get Started
+            </button>
+<button class="font-body-md text-body-md text-text-secondary hover:text-text-primary transition-colors py-2 px-4 rounded-full active:bg-surface-variant">
+                Skip
+            </button>
+</div>
+</main>
+</body></html>

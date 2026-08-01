@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ChainAlert - Alert Rules</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb955",
+                      "surface-dim": "#d8dadd",
+                      "on-secondary": "#ffffff",
+                      "outline": "#6d7a71",
+                      "primary": "#006947",
+                      "on-tertiary-fixed": "#291800",
+                      "surface-container-low": "#f2f4f7",
+                      "surface": "#FFFFFF",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#633f00",
+                      "text-primary": "#0F172A",
+                      "tertiary-fixed": "#ffddb4",
+                      "secondary": "#4a645b",
+                      "inverse-surface": "#2d3133",
+                      "primary-fixed-dim": "#63dca6",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed": "#062019",
+                      "on-tertiary-container": "#fffbff",
+                      "on-primary-container": "#f5fff6",
+                      "on-primary": "#ffffff",
+                      "text-secondary": "#64748B",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#334c44",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fc",
+                      "secondary-fixed-dim": "#b1ccc2",
+                      "tertiary": "#805200",
+                      "inverse-on-surface": "#eff1f4",
+                      "surface-container-highest": "#e0e3e6",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bccac0",
+                      "inverse-primary": "#63dca6",
+                      "border": "#E6EAF0",
+                      "surface-bright": "#f7f9fc",
+                      "primary-container": "#00855b",
+                      "surface-container": "#eceef1",
+                      "primary-fixed": "#81f9c1",
+                      "error-container": "#ffdad6",
+                      "on-secondary-container": "#506a61",
+                      "on-primary-fixed-variant": "#005236",
+                      "secondary-fixed": "#cde9de",
+                      "secondary-container": "#cde9de",
+                      "tertiary-container": "#a16900",
+                      "surface-container-high": "#e6e8eb",
+                      "surface-tint": "#006c49",
+                      "on-surface-variant": "#3d4a42",
+                      "negative": "#E5484D",
+                      "on-primary-fixed": "#002113",
+                      "surface-variant": "#e0e3e6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "screen-padding": "20px",
+                      "stack-md": "12px",
+                      "base": "8px",
+                      "stack-sm": "4px",
+                      "gutter": "12px",
+                      "stack-lg": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "numeral-data": ["Inter"],
+                      "caption": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "card-title": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "numeral-data": ["15px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "caption": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "card-title": ["16px", {"lineHeight": "24px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom range slider styling for brand alignment */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #00855b; /* primary-container */
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #E6EAF0; /* border */
+            border-radius: 2px;
+        }
+        /* Custom soft shadow */
+        .shadow-soft {
+            box-shadow: 0 2px 12px rgba(15,23,42,0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary font-body-md text-body-md antialiased min-h-screen pb-8 max-w-md mx-auto relative shadow-2xl">
+<!-- TopAppBar JSON Execution -->
+<header class="bg-background dark:bg-background text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md w-full top-0 flat no shadows transition-opacity duration-200 flex items-center justify-between px-screen-padding h-16 w-full">
+<button class="text-primary hover:opacity-80 flex items-center justify-center p-2 -ml-2">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">ChainAlert</div>
+<div class="w-8"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Page Context -->
+<div class="px-screen-padding pb-6 pt-2">
+<h1 class="font-headline-lg text-headline-lg">Alert rules</h1>
+<p class="font-body-md text-text-secondary mt-1">Configure your notification triggers.</p>
+</div>
+<main class="px-screen-padding flex flex-col gap-stack-lg">
+<!-- Rule Editor Card -->
+<section class="bg-surface rounded-[16px] shadow-soft p-5 border border-border">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">tune</span>
+</div>
+<h2 class="font-card-title text-card-title">Transfer amount &gt; $50,000</h2>
+</div>
+<!-- Event Toggles -->
+<div class="flex flex-col gap-0 border-t border-b border-border py-2 mb-6">
+<div class="flex justify-between items-center py-3">
+<span class="font-body-md text-text-primary">Transfers</span>
+<!-- Toggle ON -->
+<button class="w-11 h-6 bg-primary-container rounded-full p-1 flex justify-end items-center transition-colors">
+<div class="w-4 h-4 bg-surface rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="w-full h-px bg-border"></div>
+<div class="flex justify-between items-center py-3">
+<span class="font-body-md text-text-primary">Mints</span>
+<!-- Toggle OFF -->
+<button class="w-11 h-6 bg-surface-container-high rounded-full p-1 flex justify-start items-center transition-colors">
+<div class="w-4 h-4 bg-surface rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="w-full h-px bg-border"></div>
+<div class="flex justify-between items-center py-3">
+<span class="font-body-md text-text-primary">Swaps</span>
+<!-- Toggle OFF -->
+<button class="w-11 h-6 bg-surface-container-high rounded-full p-1 flex justify-start items-center transition-colors">
+<div class="w-4 h-4 bg-surface rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="w-full h-px bg-border"></div>
+<div class="flex justify-between items-center py-3">
+<span class="font-body-md text-text-primary">Approvals</span>
+<!-- Toggle OFF -->
+<button class="w-11 h-6 bg-surface-container-high rounded-full p-1 flex justify-start items-center transition-colors">
+<div class="w-4 h-4 bg-surface rounded-full shadow-sm"></div>
+</button>
+</div>
+</div>
+<!-- Threshold Slider -->
+<div class="mb-8">
+<div class="flex justify-between items-end mb-4">
+<span class="font-caption text-caption text-text-secondary uppercase tracking-wider">USD Value Threshold</span>
+<span class="font-numeral-data text-numeral-data text-primary-container bg-secondary-fixed/20 px-2 py-1 rounded-md">$50,000</span>
+</div>
+<div class="relative w-full">
+<!-- Faux filled track for styling -->
+<div class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary-container rounded-l-full w-1/2 z-0 pointer-events-none"></div>
+<input class="relative z-10" max="100000" min="0" type="range" value="50000"/>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-caption text-caption text-text-secondary opacity-50">$0</span>
+<span class="font-caption text-caption text-text-secondary opacity-50">$100k+</span>
+</div>
+</div>
+<!-- Direction Selector -->
+<div>
+<span class="font-caption text-caption text-text-secondary uppercase tracking-wider block mb-3">Flow Direction</span>
+<div class="flex bg-surface-container-low p-1 rounded-lg gap-1">
+<button class="flex-1 py-2 text-center rounded-md font-caption text-caption text-text-secondary hover:bg-surface-container transition-colors">In</button>
+<button class="flex-1 py-2 text-center rounded-md font-caption text-caption text-text-secondary hover:bg-surface-container transition-colors">Out</button>
+<!-- Selected State -->
+<button class="flex-1 py-2 text-center rounded-md bg-surface text-primary-container shadow-sm font-caption text-caption font-semibold">Both</button>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<button class="w-full bg-primary text-on-primary font-card-title text-card-title py-4 rounded-full shadow-soft hover:opacity-90 transition-opacity">
+            Save rule
+        </button>
+<!-- Existing Rules List -->
+<section class="mt-4">
+<h3 class="font-card-title text-card-title mb-4">My rules</h3>
+<div class="flex flex-col gap-3">
+<!-- Swipe Hint Simulated Card -->
+<div class="relative w-full h-[72px] bg-negative rounded-[16px] overflow-hidden flex items-center justify-end px-5 shadow-soft">
+<span class="material-symbols-outlined text-on-error" style="font-variation-settings: 'FILL' 1;">delete</span>
+<!-- Foreground swiped card -->
+<div class="absolute top-0 left-0 w-full h-full bg-surface border border-border rounded-[16px] flex items-center justify-between px-4 transform -translate-x-12 transition-transform shadow-soft">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+</div>
+<span class="font-body-md text-text-primary font-medium">Any mint &gt; $10,000</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">drag_indicator</span>
+</div>
+</div>
+<!-- Normal Card -->
+<div class="w-full h-[72px] bg-surface border border-border rounded-[16px] flex items-center justify-between px-4 shadow-soft">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+</div>
+<span class="font-body-md text-text-primary font-medium">Large swap &gt; $1M</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">drag_indicator</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

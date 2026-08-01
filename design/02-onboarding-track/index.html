@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ChainAlert - Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#eff1f4",
+                      "surface-variant": "#e0e3e6",
+                      "negative": "#E5484D",
+                      "outline": "#6d7a71",
+                      "surface-container-highest": "#e0e3e6",
+                      "secondary": "#4a645b",
+                      "secondary-fixed": "#cde9de",
+                      "primary": "#006947",
+                      "on-tertiary-fixed": "#291800",
+                      "on-background": "#191c1e",
+                      "error-container": "#ffdad6",
+                      "outline-variant": "#bccac0",
+                      "on-secondary-fixed-variant": "#334c44",
+                      "surface": "#FFFFFF",
+                      "inverse-primary": "#63dca6",
+                      "surface-bright": "#f7f9fc",
+                      "tertiary-container": "#a16900",
+                      "surface-tint": "#006c49",
+                      "primary-fixed-dim": "#63dca6",
+                      "tertiary": "#805200",
+                      "on-surface-variant": "#3d4a42",
+                      "on-secondary-container": "#506a61",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#005236",
+                      "primary-fixed": "#81f9c1",
+                      "border": "#E6EAF0",
+                      "secondary-container": "#cde9de",
+                      "inverse-surface": "#2d3133",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb955",
+                      "surface-container-high": "#e6e8eb",
+                      "surface-container": "#eceef1",
+                      "primary-container": "#00855b",
+                      "tertiary-fixed": "#ffddb4",
+                      "text-secondary": "#64748B",
+                      "on-primary-container": "#f5fff6",
+                      "background": "#f7f9fc",
+                      "text-primary": "#0F172A",
+                      "secondary-fixed-dim": "#b1ccc2",
+                      "on-primary-fixed": "#002113",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f2f4f7",
+                      "on-tertiary-fixed-variant": "#633f00",
+                      "on-surface": "#191c1e",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#062019",
+                      "surface-dim": "#d8dadd",
+                      "on-tertiary-container": "#fffbff",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "12px",
+                      "stack-lg": "16px",
+                      "stack-sm": "4px",
+                      "screen-padding": "20px",
+                      "base": "8px",
+                      "stack-md": "12px"
+              },
+              "fontFamily": {
+                      "card-title": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "numeral-data": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "card-title": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "numeral-data": [
+                              "15px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "15px",
+                              {
+                                      "lineHeight": "22px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F6F8FB; /* Required Background */
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Custom soft shadow as requested */
+        .soft-shadow {
+            box-shadow: 0px 2px 12px rgba(15, 23, 42, 0.06);
+        }
+
+        /* Stacking animation for the cards */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .animate-card-1 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; opacity: 0; }
+        .animate-card-2 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
+        .animate-card-3 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; opacity: 0; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center font-body-md text-text-primary">
+<!-- Mobile Frame Container (Max width for typical phone size to enforce mobile UI) -->
+<main class="w-full max-w-[390px] h-[844px] bg-background relative flex flex-col overflow-hidden shadow-2xl md:rounded-[40px] border border-border">
+<!-- Header / Back button context -->
+<header class="w-full flex justify-between items-center px-screen-padding pt-12 pb-4">
+<button aria-label="Back" class="text-text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<button class="font-caption text-caption text-text-secondary active:scale-95 transition-transform">
+                 Skip
+             </button>
+</header>
+<!-- Content Area -->
+<div class="flex-1 px-screen-padding flex flex-col mt-4">
+<!-- Illustration / Stacked Cards -->
+<div class="relative w-full h-[220px] mb-8 flex items-center justify-center">
+<!-- Card 3 (Back) -->
+<div class="absolute w-[240px] h-[64px] bg-surface rounded-xl soft-shadow animate-card-1 flex items-center px-4 gap-3 transform -translate-y-8 scale-90 border border-border opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</div>
+<div>
+<div class="font-caption text-caption text-text-primary">Uniswap V3</div>
+<div class="text-[11px] text-text-secondary">Smart Contract</div>
+</div>
+</div>
+<!-- Card 2 (Middle) -->
+<div class="absolute w-[260px] h-[64px] bg-surface rounded-xl soft-shadow animate-card-2 flex items-center px-4 gap-3 transform -translate-y-4 scale-95 border border-border z-10 opacity-80">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[18px]">paid</span>
+</div>
+<div>
+<div class="font-caption text-caption text-text-primary">USDC</div>
+<div class="text-[11px] text-text-secondary">Token Tracker</div>
+</div>
+</div>
+<!-- Card 1 (Front) -->
+<div class="absolute w-[280px] h-[72px] bg-surface rounded-xl soft-shadow animate-card-3 flex items-center px-4 gap-4 z-20 border border-primary/20">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<div class="font-card-title text-card-title text-text-primary">vitalik.eth</div>
+<div class="font-caption text-caption text-text-secondary">Wallet Activity</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+</div>
+<!-- Copy -->
+<div class="text-center mb-6 px-4">
+<h1 class="font-headline-lg text-headline-lg text-text-primary mb-3">Track any wallet, token or contract</h1>
+<p class="font-body-md text-body-md text-text-secondary">Monitor on-chain activity instantly. Get notified when significant movements occur.</p>
+</div>
+<!-- Interactive Chips -->
+<div class="flex flex-wrap justify-center gap-2 mb-auto pb-8">
+<button class="px-4 py-2 rounded-full bg-primary/10 border border-primary font-caption text-caption text-primary flex items-center gap-2 active:scale-95 transition-all">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                    Vitalik.eth
+                </button>
+<button class="px-4 py-2 rounded-full bg-surface border border-border font-caption text-caption text-text-secondary active:scale-95 transition-all hover:bg-surface-container">
+                    USDC
+                </button>
+<button class="px-4 py-2 rounded-full bg-surface border border-border font-caption text-caption text-text-secondary active:scale-95 transition-all hover:bg-surface-container">
+                    Uniswap V3
+                </button>
+</div>
+</div>
+<!-- Bottom Controls -->
+<div class="w-full px-screen-padding pb-10 flex flex-col items-center">
+<!-- Pagination Dots -->
+<div class="flex gap-2 mb-8">
+<div class="w-2 h-2 rounded-full bg-surface-dim"></div>
+<div class="w-6 h-2 rounded-full bg-primary transition-all duration-300"></div>
+<div class="w-2 h-2 rounded-full bg-surface-dim"></div>
+<div class="w-2 h-2 rounded-full bg-surface-dim"></div>
+</div>
+<!-- Continue Button -->
+<button class="w-full py-4 rounded-full bg-primary font-card-title text-card-title text-white active:scale-[0.98] transition-transform shadow-[0_4px_14px_0_rgba(0,105,71,0.2)]">
+                Continue
+            </button>
+</div>
+</main>
+<script>
+        // Simple interactivity for the chips
+        document.querySelectorAll('.flex-wrap button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Reset all
+                document.querySelectorAll('.flex-wrap button').forEach(btn => {
+                    btn.className = 'px-4 py-2 rounded-full bg-surface border border-border font-caption text-caption text-text-secondary active:scale-95 transition-all hover:bg-surface-container';
+                    const dot = btn.querySelector('span.w-2');
+                    if(dot) dot.remove();
+                });
+                
+                // Set active
+                this.className = 'px-4 py-2 rounded-full bg-primary/10 border border-primary font-caption text-caption text-primary flex items-center gap-2 active:scale-95 transition-all';
+                if(!this.querySelector('span.w-2')) {
+                    const dot = document.createElement('span');
+                    dot.className = 'w-2 h-2 rounded-full bg-primary';
+                    this.prepend(dot);
+                }
+            });
+        });
+    </script>
+</body></html>

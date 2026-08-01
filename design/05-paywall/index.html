@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ChainAlert - Subscription Paywall</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e6e8eb",
+                        "on-secondary-container": "#506a61",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface": "#FFFFFF",
+                        "primary-container": "#00855b",
+                        "surface-bright": "#f7f9fc",
+                        "on-surface-variant": "#3d4a42",
+                        "on-primary-fixed-variant": "#005236",
+                        "primary": "#006947",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#cde9de",
+                        "surface-container-highest": "#e0e3e6",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "secondary": "#4a645b",
+                        "border": "#E6EAF0",
+                        "text-secondary": "#64748B",
+                        "primary-fixed-dim": "#63dca6",
+                        "tertiary-container": "#a16900",
+                        "secondary-fixed-dim": "#b1ccc2",
+                        "tertiary-fixed": "#ffddb4",
+                        "outline-variant": "#bccac0",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#63dca6",
+                        "secondary-fixed": "#cde9de",
+                        "surface-container-low": "#f2f4f7",
+                        "on-secondary-fixed": "#062019",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#334c44",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8dadd",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "surface-tint": "#006c49",
+                        "outline": "#6d7a71",
+                        "on-primary-container": "#f5fff6",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#eceef1",
+                        "on-background": "#191c1e",
+                        "negative": "#E5484D",
+                        "on-tertiary-fixed": "#291800",
+                        "inverse-surface": "#2d3133",
+                        "text-primary": "#0F172A",
+                        "primary-fixed": "#81f9c1",
+                        "surface-variant": "#e0e3e6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002113",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fc",
+                        "tertiary": "#805200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "12px",
+                        "stack-sm": "4px",
+                        "stack-lg": "16px",
+                        "stack-md": "12px",
+                        "screen-padding": "20px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "card-title": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "numeral-data": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "card-title": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "numeral-data": ["15px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 12px rgba(15, 23, 42, 0.06)'
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .plan-card.selected {
+            border-color: #0E9F6E;
+            background-color: #F8FFF9;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased flex flex-col min-h-screen">
+<!-- TopAppBar from JSON -->
+<header class="bg-background dark:bg-background w-full top-0 flex items-center justify-between px-screen-padding h-16 transition-opacity duration-200">
+<button aria-label="Close" class="hover:opacity-80 p-2 -ml-2" data-icon="close">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim text-[24px]">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">ChainAlert</h1>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-screen-padding pt-6 pb-12 flex flex-col max-w-md mx-auto w-full">
+<div class="text-center mb-8">
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-stack-md">Start your 7-day free trial</h2>
+<p class="font-body-md text-body-md text-text-secondary">Unlock professional blockchain monitoring.</p>
+</div>
+<!-- Features Checklist -->
+<div class="mb-10 space-y-stack-md px-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#0E9F6E]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Unlimited tracked entities</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#0E9F6E]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Real-time alerts</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#0E9F6E]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Custom rules</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#0E9F6E]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Priority push</span>
+</div>
+</div>
+<!-- Plan Selection -->
+<div class="space-y-stack-md mb-10">
+<!-- Yearly Card (Selected) -->
+<label class="plan-card selected flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer shadow-soft relative overflow-hidden transition-all duration-200" onclick="selectPlan(this)">
+<input checked="" class="hidden" name="plan" type="radio" value="yearly"/>
+<div class="absolute top-0 right-0 bg-[#0E9F6E] text-on-primary font-caption text-[11px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                    Best Value
+                </div>
+<div class="flex flex-col gap-1 mt-2">
+<span class="font-card-title text-card-title text-text-primary">Yearly</span>
+<span class="font-body-md text-body-md text-text-secondary">Save 50% vs monthly</span>
+</div>
+<div class="text-right mt-2">
+<span class="font-numeral-data text-[20px] font-bold text-text-primary block leading-none">$59.99<span class="text-[14px] font-medium text-text-secondary">/yr</span></span>
+</div>
+</label>
+<!-- Monthly Card -->
+<label class="plan-card flex items-center justify-between p-4 rounded-xl border border-border bg-surface cursor-pointer shadow-soft transition-all duration-200 hover:border-text-secondary" onclick="selectPlan(this)">
+<input class="hidden" name="plan" type="radio" value="monthly"/>
+<div class="flex flex-col gap-1">
+<span class="font-card-title text-card-title text-text-primary">Monthly</span>
+<span class="font-body-md text-body-md text-text-secondary">Flexible, cancel anytime</span>
+</div>
+<div class="text-right">
+<span class="font-numeral-data text-[20px] font-bold text-text-primary block leading-none">$9.99<span class="text-[14px] font-medium text-text-secondary">/mo</span></span>
+</div>
+</label>
+</div>
+<!-- Call to Action -->
+<div class="mt-auto pt-4 flex flex-col items-center">
+<button class="w-full bg-[#0E9F6E] hover:bg-[#0b865a] text-on-primary font-card-title text-card-title py-4 rounded-full shadow-soft transition-colors duration-200">
+                Start Free Trial
+            </button>
+<p class="font-caption text-caption text-text-secondary mt-stack-md text-center">
+                then <span id="dynamic-price">$59.99/yr</span>, cancel anytime
+            </p>
+</div>
+</main>
+<!-- Footer from JSON -->
+<footer class="bg-transparent flex flex-col items-center gap-stack-sm pb-8 px-screen-padding w-full font-caption text-caption mt-auto">
+<div class="flex items-center justify-center gap-4 flex-wrap mb-2">
+<a class="text-text-secondary hover:text-primary transition-colors duration-200" href="#">Restore Purchase</a>
+<span class="text-border text-[10px]">|</span>
+<a class="text-text-secondary hover:text-primary transition-colors duration-200" href="#">Terms of Service</a>
+<span class="text-border text-[10px]">|</span>
+<a class="text-text-secondary hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+</div>
+<p class="text-text-secondary">© 2024 ChainAlert. All rights reserved.</p>
+</footer>
+<script>
+        function selectPlan(selectedLabel) {
+            // Remove selection styles from all cards
+            document.querySelectorAll('.plan-card').forEach(card => {
+                card.classList.remove('selected', 'border-2', 'border-[#0E9F6E]', 'bg-[#F8FFF9]');
+                card.classList.add('border', 'border-border', 'bg-surface');
+            });
+            
+            // Add selection styles to clicked card
+            selectedLabel.classList.add('selected', 'border-2');
+            selectedLabel.classList.remove('border', 'border-border', 'bg-surface');
+            
+            // Update dynamic text
+            const radio = selectedLabel.querySelector('input[type="radio"]');
+            const priceText = document.getElementById('dynamic-price');
+            if(radio.value === 'yearly') {
+                priceText.textContent = '$59.99/yr';
+            } else {
+                priceText.textContent = '$9.99/mo';
+            }
+        }
+    </script>
+</body></html>

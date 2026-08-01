@@ -1,0 +1,116 @@
+{
+  "title": "ChainAlert",
+  "slug": "chain-alert",
+  "domain": "fintech",
+  "features": [
+    "Real-time blockchain event alert feed",
+    "Sub-2-second push notifications (FCM)",
+    "Tracked entities watchlist (wallets, tokens, contracts)",
+    "Customizable threshold + filter rules per entity",
+    "4-step interactive onboarding",
+    "RevenueCat paywall with free trial",
+    "Subscription management",
+    "Daily curated watchlist (00:00 UTC cron)",
+    "Push permission management"
+  ],
+  "screenCount": 13,
+  "sharedComponents": {
+    "bottomTabBar": {
+      "tabs": ["Feed", "Tracked", "Settings"],
+      "note": "Exactly 3 tabs in this order. Feed = activity/bell icon, Tracked = eye/watchlist icon, Settings = gear icon. Active tab in vivid emerald accent, inactive tabs neutral grey. Reused verbatim on the three primary screens only."
+    },
+    "statusBar": "Light near-white top area, screen title in bold, optional live green dot chip indicating real-time stream connected."
+  },
+  "screens": [
+    {
+      "name": "onboarding-welcome",
+      "purpose": "First launch, introduce the app value: never miss an on-chain event",
+      "content": "Full-bleed hero with abstract blockchain node graphic, headline 'Never miss an on-chain move', subcopy about sub-2-second alerts, page dots (step 1 of 4), primary emerald 'Get Started' button, small 'Skip' link",
+      "nav": "none"
+    },
+    {
+      "name": "onboarding-track",
+      "purpose": "Explain tracking wallets, tokens, and contracts",
+      "content": "Illustration of a wallet + token cards, headline 'Track any wallet, token or contract', three example chips (Vitalik.eth, USDC, Uniswap V3), page dots step 2 of 4, 'Continue' button",
+      "nav": "none"
+    },
+    {
+      "name": "onboarding-rules",
+      "purpose": "Explain customizable threshold and filter rules",
+      "content": "Illustration of a rule builder, headline 'Set your own alert rules', example rule card 'Transfer > $50,000', toggle chips (Large transfers, New mints, Whale moves), page dots step 3 of 4, 'Continue' button",
+      "nav": "none"
+    },
+    {
+      "name": "onboarding-notifications",
+      "purpose": "Request push notification permission for instant delivery",
+      "content": "Bell illustration, headline 'Get alerts in under 2 seconds', subcopy, mock iOS notification preview card 'Whale moved 1,200 ETH', page dots step 4 of 4, 'Enable Notifications' emerald button, 'Not now' link",
+      "nav": "none"
+    },
+    {
+      "name": "paywall",
+      "purpose": "RevenueCat paywall with free trial before entering the app",
+      "content": "Headline 'Start your 7-day free trial', feature checklist (Unlimited tracked entities, Real-time alerts, Custom rules, Priority push), two plan cards (Yearly $59.99 best value badge, Monthly $9.99), 'Start Free Trial' emerald CTA, restore purchases + terms links, small 'then $59.99/yr' note",
+      "nav": "none"
+    },
+    {
+      "name": "feed",
+      "purpose": "Primary real-time feed of on-chain alert events",
+      "content": "Header 'Feed' with live green dot 'Live', filter segmented control (All, Whales, Mints, Transfers), scrollable alert cards each with token/wallet avatar, event title 'Whale moved 1,200 ETH ($4.1M)', entity name 'Vitalik.eth', relative time '12s ago', threshold tag, tx hash preview, unread accent dot",
+      "nav": "Feed"
+    },
+    {
+      "name": "alert-detail",
+      "purpose": "Detail of a single on-chain alert event",
+      "content": "Back header, event headline 'Large ETH transfer', amount $4.1M / 1,200 ETH, from/to address rows with copy icons, matched rule chip 'Transfer > $1M', block number + timestamp, gas fee, 'View on Etherscan' outline button, 'Mute this entity' secondary action",
+      "nav": "none"
+    },
+    {
+      "name": "tracked-entities",
+      "purpose": "Primary watchlist of tracked wallets, tokens, contracts",
+      "content": "Header 'Tracked' with '+' add button, search field, segmented tabs (Wallets, Tokens, Contracts), list rows each with avatar, name 'Vitalik.eth', address short '0x2b6...45f', active rules count '3 rules', 24h alert count badge, right chevron",
+      "nav": "Tracked"
+    },
+    {
+      "name": "add-entity",
+      "purpose": "Modal to add a new wallet, token, or contract to track",
+      "content": "Modal sheet header 'Track new entity', type selector (Wallet / Token / Contract), address or ENS input '0x... or name.eth', suggested chips (Vitalik.eth, PEPE, Blur), starter rule toggle 'Alert on transfers > $100k', emerald 'Add to watchlist' button",
+      "nav": "none"
+    },
+    {
+      "name": "entity-detail",
+      "purpose": "Detail of one tracked entity with its stats and rules",
+      "content": "Header with avatar + 'Vitalik.eth' + address copy, stat row (Balance $28.4M, 24h alerts 7, Rules 3), recent alerts mini list, 'Alert rules' section preview with rule cards, 'Add rule' link, 'Remove from watchlist' destructive text button",
+      "nav": "none"
+    },
+    {
+      "name": "alert-rules",
+      "purpose": "Configure threshold and filter rules for an entity",
+      "content": "Header 'Alert rules', list of rule cards each with condition 'Transfer amount > $50,000', event-type toggles (Transfers, Mints, Swaps, Approvals), threshold slider with USD value, direction selector (In / Out / Both), 'Save rule' emerald button, delete rule swipe hint",
+      "nav": "none"
+    },
+    {
+      "name": "settings",
+      "purpose": "Primary settings and account screen",
+      "content": "Header 'Settings', account card (avatar, email, PRO badge), sections: Notifications (push toggle, quiet hours), Subscription (Manage plan row), Data & streams (Connected: Alchemy webhook, Refresh watchlist), Appearance, About, Sign out",
+      "nav": "Settings"
+    },
+    {
+      "name": "subscription-manage",
+      "purpose": "Manage RevenueCat subscription",
+      "content": "Header 'Subscription', current plan card 'Pro Yearly - renews Feb 12, 2027', price $59.99/yr, benefits checklist, 'Change plan' options (Yearly / Monthly), 'Restore purchases', 'Cancel subscription' destructive link, billing managed by App Store note",
+      "nav": "none"
+    }
+  ],
+  "designSystem": {
+    "theme": "light",
+    "background": "#F6F8FB",
+    "surface": "#FFFFFF",
+    "accent": "#0E9F6E",
+    "accentTint": "#D9F5EA",
+    "text": "#0F172A primary, #64748B secondary",
+    "fontFamily": "Inter",
+    "radius": "16px",
+    "spacing": "8pt scale, generous padding",
+    "frame": "390x844 mobile"
+  }
+}

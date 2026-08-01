@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ChainAlert - Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#b1ccc2",
+                        "on-secondary-fixed-variant": "#334c44",
+                        "on-primary-fixed": "#002113",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#cde9de",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e6",
+                        "surface": "#FFFFFF",
+                        "inverse-on-surface": "#eff1f4",
+                        "on-secondary-fixed": "#062019",
+                        "primary": "#006947",
+                        "outline-variant": "#bccac0",
+                        "primary-container": "#00855b",
+                        "negative": "#E5484D",
+                        "surface-tint": "#006c49",
+                        "on-tertiary": "#ffffff",
+                        "text-primary": "#0F172A",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#291800",
+                        "inverse-primary": "#63dca6",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-high": "#e6e8eb",
+                        "surface-container-low": "#f2f4f7",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#6d7a71",
+                        "primary-fixed-dim": "#63dca6",
+                        "surface-bright": "#f7f9fc",
+                        "border": "#E6EAF0",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "surface-container-highest": "#e0e3e6",
+                        "secondary": "#4a645b",
+                        "text-secondary": "#64748B",
+                        "on-primary-container": "#f5fff6",
+                        "surface-container": "#eceef1",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffddb4",
+                        "tertiary-container": "#a16900",
+                        "primary-fixed": "#81f9c1",
+                        "secondary-fixed": "#cde9de",
+                        "on-surface-variant": "#3d4a42",
+                        "background": "#f7f9fc",
+                        "on-secondary-container": "#506a61",
+                        "surface-dim": "#d8dadd",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "tertiary": "#805200",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "stack-lg": "16px",
+                        "gutter": "12px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px",
+                        "screen-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "numeral-data": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "card-title": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "numeral-data": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "card-title": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md-mobile": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-shadow {
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-text-primary antialiased font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-background dark:bg-background flex items-center justify-between px-screen-padding h-16 w-full sticky z-50">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-start text-text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-md-mobile text-headline-md-mobile text-primary dark:text-primary-fixed-dim tracking-tight">ChainAlert</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="px-screen-padding pb-screen-padding space-y-stack-lg max-w-md mx-auto mt-4">
+<!-- Profile Header -->
+<section class="flex flex-col items-center text-center space-y-stack-sm">
+<div class="w-24 h-24 rounded-full bg-surface border border-border shadow-sm mb-2 overflow-hidden relative soft-shadow">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A highly detailed 3D abstract rendering of an ethereal, glowing crystal inside a minimal pure white sphere. The aesthetic is clean, technical, and light-mode friendly with subtle emerald green light refracting through the translucent crystal structure. The mood is precise, vigilant, and high-end modern corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUmVPCwMXSJLSXYx6XC_W1jT8mXj7eF5SPeJQSA6ZRbpAuunTbreciid_oKNnMF8gv9uBl6DzViE6qaIo3eaYJhumOUAj304zILnMdbpuOWG75Z9OiLLKXpdbmfMYKEsryXJ124vpUBECqhwuhUVb_193oW2lQrrhl5hyFRDtf1tnZ6XNxS7yi0g3A6WgoXnuEYD6Q4noQcS0-PMmDX4lFWRtCdlc4AiMvu9JZN6YvkIzrk3DJ9acQglX14MMN-QIZCjQVsdG7Ty4"/>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary">Vitalik.eth</h2>
+<div class="flex items-center gap-1 text-text-secondary cursor-pointer hover:opacity-80 transition-opacity active:scale-95 bg-surface px-3 py-1 rounded-full border border-border">
+<span class="font-caption text-caption text-text-secondary">0x2b6...45f</span>
+<span class="material-symbols-outlined text-[16px] text-text-secondary" data-weight="regular">content_copy</span>
+</div>
+</section>
+<!-- Stat Row (Bento-ish) -->
+<section class="grid grid-cols-3 gap-gutter mt-stack-lg">
+<div class="bg-surface rounded-xl p-3 soft-shadow border border-border flex flex-col items-center justify-center text-center">
+<span class="font-caption text-caption text-text-secondary mb-1">Balance</span>
+<span class="font-numeral-data text-numeral-data text-primary">$28.4M</span>
+</div>
+<div class="bg-surface rounded-xl p-3 soft-shadow border border-border flex flex-col items-center justify-center text-center relative">
+<span class="font-caption text-caption text-text-secondary mb-1">24h alerts</span>
+<span class="font-numeral-data text-numeral-data text-primary">7</span>
+<div class="absolute top-2 right-2 w-2 h-2 bg-[#0E9F6E] rounded-full"></div>
+</div>
+<div class="bg-surface rounded-xl p-3 soft-shadow border border-border flex flex-col items-center justify-center text-center">
+<span class="font-caption text-caption text-text-secondary mb-1">Rules</span>
+<span class="font-numeral-data text-numeral-data text-primary">3</span>
+</div>
+</section>
+<!-- Recent Alerts -->
+<section class="mt-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-card-title text-card-title text-text-primary">Recent alerts</h3>
+<span class="font-caption text-caption text-text-secondary cursor-pointer hover:text-primary transition-colors">See all</span>
+</div>
+<div class="bg-surface rounded-xl border border-border soft-shadow overflow-hidden">
+<!-- Alert 1 -->
+<div class="flex items-center justify-between p-4 border-b border-border active:bg-surface-container-lowest transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">swap_horiz</span>
+</div>
+<div>
+<p class="font-card-title text-card-title text-text-primary">Large Transfer</p>
+<p class="font-caption text-caption text-text-secondary">$4.1M · 12s ago</p>
+</div>
+</div>
+<div class="w-2 h-2 bg-[#0E9F6E] rounded-full"></div>
+</div>
+<!-- Alert 2 -->
+<div class="flex items-center justify-between p-4 border-b border-border active:bg-surface-container-lowest transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-xl">token</span>
+</div>
+<div>
+<p class="font-card-title text-card-title text-text-primary">Token Mint</p>
+<p class="font-caption text-caption text-text-secondary">$50k · 2m ago</p>
+</div>
+</div>
+</div>
+<!-- Alert 3 -->
+<div class="flex items-center justify-between p-4 active:bg-surface-container-lowest transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-xl">swap_horiz</span>
+</div>
+<div>
+<p class="font-card-title text-card-title text-text-primary">Large Transfer</p>
+<p class="font-caption text-caption text-text-secondary">$1.2M · 5m ago</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Alert Rules Section -->
+<section class="mt-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-card-title text-card-title text-text-primary">Alert rules</h3>
+<span class="font-caption text-caption text-primary font-semibold cursor-pointer hover:opacity-80 transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">add</span> Add rule
+                </span>
+</div>
+<div class="space-y-stack-md">
+<!-- Rule Card 1 -->
+<div class="bg-surface rounded-[16px] border border-border p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-text-primary font-medium">Transfer &gt; $50,000</p>
+</div>
+</div>
+<!-- Toggle Switch Placeholder -->
+<div class="w-11 h-6 bg-primary rounded-full relative cursor-pointer shadow-inner">
+<div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div>
+</div>
+</div>
+<!-- Rule Card 2 -->
+<div class="bg-surface rounded-[16px] border border-border p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-text-primary font-medium">Any mint</p>
+</div>
+</div>
+<div class="w-11 h-6 bg-primary rounded-full relative cursor-pointer shadow-inner">
+<div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Action -->
+<section class="mt-8 pt-4 pb-8 flex justify-center">
+<button class="font-body-md text-body-md text-negative font-semibold hover:opacity-80 transition-opacity active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+                Remove from watchlist
+            </button>
+</section>
+</main>
+</body></html>

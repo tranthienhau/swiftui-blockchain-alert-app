@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ChainAlert - Settings</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#062019",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "surface": "#FFFFFF",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb955",
+                        "on-tertiary-fixed": "#291800",
+                        "secondary-container": "#cde9de",
+                        "secondary": "#4a645b",
+                        "outline": "#6d7a71",
+                        "tertiary-container": "#a16900",
+                        "primary-container": "#00855b",
+                        "on-background": "#191c1e",
+                        "text-primary": "#0F172A",
+                        "surface-container-high": "#e6e8eb",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-tint": "#006c49",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "border": "#E6EAF0",
+                        "on-surface-variant": "#3d4a42",
+                        "inverse-on-surface": "#eff1f4",
+                        "primary": "#006947",
+                        "outline-variant": "#bccac0",
+                        "secondary-fixed-dim": "#b1ccc2",
+                        "surface-container-highest": "#e0e3e6",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-secondary-container": "#506a61",
+                        "text-secondary": "#64748B",
+                        "primary-fixed-dim": "#63dca6",
+                        "primary-fixed": "#81f9c1",
+                        "inverse-primary": "#63dca6",
+                        "surface-dim": "#d8dadd",
+                        "surface-bright": "#f7f9fc",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-primary-container": "#f5fff6",
+                        "surface-container-low": "#f2f4f7",
+                        "secondary-fixed": "#cde9de",
+                        "surface-container": "#eceef1",
+                        "on-secondary-fixed-variant": "#334c44",
+                        "surface-variant": "#e0e3e6",
+                        "negative": "#E5484D",
+                        "inverse-surface": "#2d3133",
+                        "background": "#f7f9fc",
+                        "on-primary-fixed": "#002113",
+                        "tertiary": "#805200",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "16px",
+                        "screen-padding": "20px",
+                        "gutter": "12px",
+                        "base": "8px",
+                        "stack-sm": "4px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "card-title": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "numeral-data": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "card-title": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "numeral-data": ["15px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .soft-shadow {
+            box-shadow: 0 2px 12px rgba(15,23,42,0.06);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Toggle Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0E9F6E;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0E9F6E;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 1;
+            border-color: #e2e8f0;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 44px;
+            height: 24px;
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+            transition: all 0.3s;
+        }
+        .toggle-dot {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .toggle-checkbox:checked ~ .toggle-dot {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary min-h-screen flex flex-col relative pb-[84px] md:pb-0 font-body-md antialiased">
+<!-- Mobile Top Header (Hidden on MD) -->
+<header class="w-full top-0 sticky z-40 bg-surface md:hidden border-b border-border">
+<div class="flex items-center justify-between px-screen-padding h-16 w-full max-w-full">
+<h1 class="font-headline-md text-headline-md text-text-primary">Settings</h1>
+</div>
+</header>
+<!-- Desktop Navigation Shell (Hidden on Mobile) -->
+<nav class="hidden md:flex w-full top-0 sticky z-50 bg-surface border-b border-border">
+<div class="flex items-center justify-between px-screen-padding h-16 w-full max-w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-lg text-headline-lg text-text-primary">ChainAlert</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-caption text-caption">Feed</span>
+</button>
+<button class="flex items-center gap-2 text-text-secondary hover:bg-surface-container-low transition-colors duration-200 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span class="font-caption text-caption">Tracked</span>
+</button>
+<button class="flex items-center gap-2 text-primary-fixed-dim bg-surface-container-low px-3 py-2 rounded-lg transition-colors duration-200">
+<span class="material-symbols-outlined filled" data-icon="settings">settings</span>
+<span class="font-caption text-caption font-bold">Settings</span>
+</button>
+</div>
+<div class="flex items-center gap-2 bg-[#D9F5EA] px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-[#0E9F6E]"></div>
+<span class="text-[13px] font-bold uppercase text-primary-fixed-dim tracking-wide">LIVE</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-2xl mx-auto px-screen-padding py-6 md:py-8 flex flex-col gap-stack-lg">
+<!-- Desktop Header (Only visible on MD+) -->
+<h1 class="hidden md:block font-headline-lg text-headline-lg text-text-primary mb-2">Settings</h1>
+<!-- Account Card -->
+<div class="bg-surface rounded-xl soft-shadow p-4 flex items-center justify-between w-full">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high border border-border">
+<img class="w-full h-full object-cover" data-alt="A clean, modern flat illustration of a generic user avatar placeholder, featuring a stylized silhouette in subtle cool grey tones against an off-white background, suitable for a professional fintech application. High contrast, vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADeuApvVAwiQlTwjG4Z4shoJ-gVgATa_9hdO1pK34O_sdq1oqdxdDF6gTBb-GLtiHgCacXmALTFJSt4CVm2Di7nrLmISN_ffR8e4DLrRXji-Cf5vBOJcES51MITKQTGbuwGvdZLnsk-yqulfQPsrSe-MYQ-elGTguhC59f1utOCBnERk6xidl1sEmSDGUY_t8Ssg2OHqQVpaWgkztgyqrEusCsf0j4cMNLQpVEUa92MS3Tegp3VwuWPkk41lM3HsjZ5Ss9fU54P_o5"/>
+</div>
+<div>
+<h2 class="font-card-title text-card-title text-text-primary">alex@chainalert.app</h2>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Free Plan</p>
+</div>
+</div>
+<div class="bg-[#D9F5EA] px-2.5 py-1 rounded-md border border-[#0E9F6E]/20">
+<span class="font-caption text-caption text-[#0E9F6E] font-bold tracking-wide">PRO</span>
+</div>
+</div>
+<!-- Notifications Settings -->
+<div class="bg-surface rounded-xl soft-shadow flex flex-col overflow-hidden w-full">
+<div class="px-4 py-3.5 border-b border-border flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-text-primary">Push alerts</span>
+<span class="font-caption text-caption text-text-secondary">Instant delivery for critical events</span>
+</div>
+<div class="relative inline-block w-11 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer opacity-0" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="toggle1"></label>
+<div class="toggle-dot pointer-events-none"></div>
+</div>
+</div>
+<div class="px-4 py-3.5 flex items-center justify-between hover:bg-surface-bright cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-text-primary">Quiet hours</span>
+<span class="material-symbols-outlined text-text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Subscription Settings -->
+<div class="bg-surface rounded-xl soft-shadow flex flex-col w-full overflow-hidden">
+<div class="px-4 py-3.5 flex items-center justify-between hover:bg-surface-bright cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-text-primary">Manage plan</span>
+<span class="material-symbols-outlined text-text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Data & Streams Settings -->
+<div class="bg-surface rounded-xl soft-shadow flex flex-col w-full overflow-hidden">
+<div class="px-4 py-3.5 border-b border-border flex items-center justify-between">
+<span class="font-body-md text-body-md text-text-primary">Connected Alchemy webhook</span>
+<div class="w-2 h-2 rounded-full bg-[#0E9F6E]"></div>
+</div>
+<div class="px-4 py-3.5 flex items-center justify-between hover:bg-surface-bright cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-text-primary">Refresh watchlist</span>
+<span class="material-symbols-outlined text-text-secondary" data-icon="sync">sync</span>
+</div>
+</div>
+<!-- General Settings -->
+<div class="bg-surface rounded-xl soft-shadow flex flex-col w-full overflow-hidden mb-4">
+<div class="px-4 py-3.5 border-b border-border flex items-center justify-between hover:bg-surface-bright cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-text-primary">Appearance</span>
+<div class="flex items-center gap-2">
+<span class="font-caption text-caption text-text-secondary">Light</span>
+<span class="material-symbols-outlined text-text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<div class="px-4 py-3.5 flex items-center justify-between hover:bg-surface-bright cursor-pointer transition-colors">
+<span class="font-body-md text-body-md text-text-primary">About</span>
+<span class="font-caption text-caption text-text-secondary">v2.4.1</span>
+</div>
+</div>
+<!-- Sign Out Action -->
+<div class="w-full flex justify-center pb-8">
+<button class="font-body-md text-body-md text-text-secondary hover:text-negative transition-colors py-2 px-4">
+                Sign out
+            </button>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Hidden on MD) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-[84px] bg-surface border-t border-border flex justify-around items-center px-screen-padding pb-safe">
+<button class="flex flex-col items-center justify-center text-text-secondary hover:bg-secondary-container active:scale-95 transition-all duration-150 p-2 rounded-lg">
+<span class="material-symbols-outlined mb-1" data-icon="notifications">notifications</span>
+<span class="font-caption text-caption">Feed</span>
+</button>
+<button class="flex flex-col items-center justify-center text-text-secondary hover:bg-secondary-container active:scale-95 transition-all duration-150 p-2 rounded-lg">
+<span class="material-symbols-outlined mb-1" data-icon="visibility">visibility</span>
+<span class="font-caption text-caption">Tracked</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#0E9F6E] font-bold active:scale-95 transition-all duration-150 p-2 rounded-lg">
+<span class="material-symbols-outlined filled mb-1" data-icon="settings">settings</span>
+<span class="font-caption text-caption">Settings</span>
+</button>
+</nav>
+</body></html>

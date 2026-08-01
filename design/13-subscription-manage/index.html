@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Subscription Management - ChainAlert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eceef1",
+                      "tertiary-fixed": "#ffddb4",
+                      "secondary": "#4a645b",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#006c49",
+                      "primary-container": "#00855b",
+                      "on-primary-container": "#f5fff6",
+                      "surface-container-high": "#e6e8eb",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#002113",
+                      "text-primary": "#0F172A",
+                      "on-tertiary-fixed-variant": "#633f00",
+                      "background": "#f7f9fc",
+                      "inverse-on-surface": "#eff1f4",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "border": "#E6EAF0",
+                      "secondary-fixed": "#cde9de",
+                      "secondary-container": "#cde9de",
+                      "on-secondary-fixed-variant": "#334c44",
+                      "text-secondary": "#64748B",
+                      "on-secondary-fixed": "#062019",
+                      "outline-variant": "#bccac0",
+                      "negative": "#E5484D",
+                      "inverse-primary": "#63dca6",
+                      "secondary-fixed-dim": "#b1ccc2",
+                      "tertiary-fixed-dim": "#ffb955",
+                      "tertiary-container": "#a16900",
+                      "inverse-surface": "#2d3133",
+                      "on-background": "#191c1e",
+                      "surface": "#FFFFFF",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "tertiary": "#805200",
+                      "primary-fixed-dim": "#63dca6",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-dim": "#d8dadd",
+                      "surface-container-low": "#f2f4f7",
+                      "primary": "#0E9F6E", /* Overridden based on prompt request for Emerald #0E9F6E */
+                      "on-primary-fixed-variant": "#005236",
+                      "on-tertiary-fixed": "#291800",
+                      "on-surface-variant": "#3d4a42",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "outline": "#6d7a71",
+                      "on-secondary-container": "#506a61",
+                      "surface-variant": "#e0e3e6",
+                      "surface-bright": "#f7f9fc",
+                      "primary-fixed": "#81f9c1",
+                      "surface-container-highest": "#e0e3e6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1rem", /* Overridden for 16px radius */
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "12px",
+                      "stack-lg": "16px",
+                      "stack-sm": "4px",
+                      "stack-md": "12px",
+                      "base": "8px",
+                      "screen-padding": "20px"
+              },
+              "fontFamily": {
+                      "caption": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "card-title": ["Inter"],
+                      "numeral-data": ["Inter"]
+              },
+              "fontSize": {
+                      "caption": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                      "card-title": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "numeral-data": ["15px", {"lineHeight": "20px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+        body { background-color: #F6F8FB; }
+        .soft-shadow { box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06); }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased text-text-primary h-screen flex flex-col max-w-[390px] mx-auto bg-background overflow-y-auto">
+<!-- TopAppBar from JSON -->
+<header class="flex items-center justify-between px-screen-padding h-16 w-full bg-background dark:bg-on-background w-full top-0 sticky z-50">
+<button class="flex items-center justify-center w-10 h-10 -ml-2 text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-text-primary flex-1 ml-2">Subscription</h1>
+<button class="flex items-center justify-center w-10 h-10 -mr-2 text-on-surface-variant dark:text-outline-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<main class="flex-1 px-screen-padding pb-8">
+<!-- Current Plan Section -->
+<section class="mt-stack-lg">
+<div class="bg-surface rounded-xl p-4 soft-shadow border border-border">
+<div class="flex justify-between items-start mb-stack-sm">
+<div>
+<h2 class="font-card-title text-card-title text-text-primary">Pro Yearly</h2>
+<p class="font-caption text-caption text-text-secondary">Renews Feb 12, 2027</p>
+</div>
+<span class="bg-[#D9F5EA] text-primary px-3 py-1 rounded-full font-caption text-[11px] font-bold uppercase tracking-wider">Active</span>
+</div>
+<div class="mt-stack-md flex items-end gap-1">
+<span class="font-headline-lg text-headline-lg text-text-primary">$59.99</span>
+<span class="font-body-md text-body-md text-text-secondary pb-1">/yr</span>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="mt-6">
+<h3 class="font-card-title text-card-title text-text-primary mb-stack-md px-1">Pro Benefits</h3>
+<ul class="bg-surface rounded-xl p-4 soft-shadow border border-border space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Unlimited wallet alerts</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Custom logic rules &amp; thresholds</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Real-time on-chain tracking</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-body-md text-body-md text-text-primary">Advanced contract analytics</span>
+</li>
+</ul>
+</section>
+<!-- Change Plan Section -->
+<section class="mt-8">
+<h3 class="font-card-title text-card-title text-text-primary mb-stack-md px-1">Available Plans</h3>
+<div class="space-y-stack-md">
+<!-- Selected Plan -->
+<button class="w-full text-left bg-surface rounded-xl p-4 border-2 border-primary soft-shadow relative overflow-hidden transition-all active:scale-[0.98]">
+<div class="absolute top-0 right-0 bg-primary text-white font-caption text-[10px] font-bold px-2 py-1 rounded-bl-lg">BEST VALUE</div>
+<div class="flex items-center justify-between">
+<div>
+<span class="font-card-title text-card-title text-text-primary block">Yearly</span>
+<span class="font-body-md text-body-md text-text-secondary">$59.99/yr</span>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+</div>
+</button>
+<!-- Unselected Plan -->
+<button class="w-full text-left bg-surface rounded-xl p-4 border border-border soft-shadow transition-all active:scale-[0.98] hover:border-text-secondary">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-card-title text-card-title text-text-primary block">Monthly</span>
+<span class="font-body-md text-body-md text-text-secondary">$9.99/mo</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">radio_button_unchecked</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Actions & Footer -->
+<section class="mt-8 pt-4 border-t border-border flex flex-col items-center">
+<button class="w-full bg-surface border border-border text-text-primary font-card-title text-card-title rounded-full py-3 mb-stack-lg active:scale-95 transition-transform soft-shadow">
+                Restore purchases
+            </button>
+<button class="text-negative font-caption text-caption font-semibold mb-6 hover:opacity-80 transition-opacity">
+                Cancel subscription
+            </button>
+<p class="font-caption text-caption text-text-secondary text-center px-4">
+                Billing is managed through the App Store.
+            </p>
+</section>
+</main>
+</body></html>
