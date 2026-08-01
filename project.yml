@@ -1,0 +1,43 @@
+name: ChainAlert
+options:
+  bundleIdPrefix: com.chainalert
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGNING_REQUIRED: "NO"
+    CODE_SIGN_IDENTITY: ""
+targets:
+  ChainAlert:
+    type: application
+    platform: iOS
+    sources:
+      - ChainAlert
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.chainalert.app
+        GENERATE_INFOPLIST_FILE: "YES"
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: "YES"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_CFBundleDisplayName: ChainAlert
+      configs:
+        Debug:
+          UIAppFonts:
+            - Inter-Regular.ttf
+            - Inter-Medium.ttf
+            - Inter-SemiBold.ttf
+            - Inter-Bold.ttf
+    info:
+      path: ChainAlert/Info.plist
+      properties:
+        UIAppFonts:
+          - Inter-Regular.ttf
+          - Inter-Medium.ttf
+          - Inter-SemiBold.ttf
+          - Inter-Bold.ttf
+        UILaunchScreen: {}
